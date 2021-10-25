@@ -5,7 +5,7 @@ const msg = required('../helpers/messages')
 
 const authService = {
     signToken: async (id)=>{
-        return jwt.sign({id}, 'My app', {
+        return jwt.sign({id}, process.env.JWT_SECRET, {       //para traer el .dev la constante JWT_SECRET y ya no queda expuesta la llave de seguridad de jwt
             expiresIn: 60 * 60 * 24
         })
     },
